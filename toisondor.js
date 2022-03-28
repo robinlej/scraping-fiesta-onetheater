@@ -23,7 +23,7 @@ const scrapUrlsToison = async (url) => {
 
 	await browser.close()
 
-	scrapContentToison(theaterToisonURL)
+	return scrapContentToison(theaterToisonURL)
 
 }
 

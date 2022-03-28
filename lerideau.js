@@ -22,7 +22,7 @@ const scrapUrls = async (url) => {
 
 	await browser.close()
 
-	scrapContent(theaterURL)
+	return scrapContent(theaterURL)
 
 }
 

@@ -11,6 +11,7 @@ const { ToisonDor } = require('./toisondor')
 const { balsamine } = require('./balsamine')
 const { lerideau } = require('./lerideau')
 const { CentreCultureAuderghem } = require('./ccauderghem')
+const { chapeau } = require ('./chapeau')
 
 const main = async () => {
     let plays = [
@@ -26,7 +27,8 @@ const main = async () => {
         ...await ToisonDor(),
         ...await balsamine(),
         ...await lerideau(),
-        ...await CentreCultureAuderghem()
+        ...await CentreCultureAuderghem(),
+        ...await chapeau()
     ]
 
     console.log(plays)

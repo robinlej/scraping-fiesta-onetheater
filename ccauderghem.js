@@ -22,7 +22,7 @@ const scrapUrlsAuderghem = async (url) => {
 
 	await browser.close()
 
-	scrapContentAuderghem(theaterAuderghemURL)
+	return scrapContentAuderghem(theaterAuderghemURL)
 
 }
 

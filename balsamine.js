@@ -20,7 +20,7 @@ const scrapUrlsBalsamine = async (url) => {
 
 	await browser.close()
 
-	scrapContentBalsamine(balsamineURL)
+	return scrapContentBalsamine(balsamineURL)
 
 }
 
