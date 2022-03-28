@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const { martyrs } = require('./theaters/martyrs')
 const { theatrenational } = require('./theaters/theatrenational')
 const { tanneurs } = require('./theaters/tanneurs')
@@ -31,9 +33,13 @@ const main = async () => {
         ...await chapeau()
     ]
 
-    console.log(plays)
-
-    // y = plays.sort((a, b) => a.title > b.title)
+    // console.log(plays)
+    
+    fs.writeFile('plays2.json', JSON.stringify(plays), function (err) {
+        if (err) throw err;
+    });
+    
+    // const y = plays.sort((a, b) => a.title > b.title)
     // console.log(y)
 }
 
