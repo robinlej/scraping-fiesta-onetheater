@@ -9,6 +9,7 @@ const scrapeEachPlay = async (page, url) => {
 
     let play = {}
     
+    play.theatre = 'Théâtre Les Tanneurs'
     play.title = await page.evaluate(() => document.querySelector('#performance-banner-data-content h2').textContent)
     // console.log(play.title)
     play.date = await page.evaluate(() => document.querySelector('#performance-banner-data-content h3 .performance-banner-data-date').textContent)
@@ -63,11 +64,13 @@ const scrapeFrom = async (url) => {
         plays.push(play)
     }
 
-    console.log(plays)
-        
     await page.close()
     await context.close()
     await browser.close()
+
+    return plays
 }
 
-scrapeFrom(seasonUrl)
+const tanneurs = () => scrapeFrom(seasonUrl)
+
+exports.tanneurs = tanneurs

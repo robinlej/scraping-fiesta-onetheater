@@ -9,6 +9,7 @@ const scrapeEachPlay = async (page, url) => {
 
     let play = {}
     
+    play.theatre = 'Théâtre des Martyrs'
     play.title = await page.evaluate(() => {
         const element = document.querySelector('h1')
         return element ? element.textContent.trim() : ''
@@ -71,11 +72,14 @@ const scrapeFrom = async (url) => {
         plays.push(play)
     }
 
-    console.log(plays)
-        
+    
     await page.close()
     await context.close()
     await browser.close()
+    
+    return plays
 }
 
-scrapeFrom(seasonUrl)
+const martyrs = () => scrapeFrom(seasonUrl)
+
+exports.martyrs = martyrs

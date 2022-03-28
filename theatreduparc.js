@@ -9,6 +9,7 @@ const scrapeEachPlay = async (page, url) => {
 
     let play = {}
     
+    play.theatre = 'Théâtre du Parc'
     play.title = await page.evaluate(() => {
         const element = document.querySelector('h1')
         return element ? element.textContent.trim().toLowerCase().replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase()))) : ''
@@ -74,11 +75,14 @@ const scrapeFrom = async (url) => {
         plays.push(play)
     }
 
-    console.log(plays)
-        
+    
     await page.close()
     await context.close()
     await browser.close()
+    
+    return plays
 }
 
-scrapeFrom(seasonUrl)
+const theatreduparc = () => scrapeFrom(seasonUrl)
+
+exports.theatreduparc = theatreduparc

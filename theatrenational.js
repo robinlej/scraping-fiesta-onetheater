@@ -7,6 +7,7 @@ const scrapeEachPlay = async (page, url) => {
 
     let play = {}
     
+    play.theatre = 'Théâtre National'
     play.title = await page.evaluate(() => document.querySelector('.page-header h1.title').textContent)
     play.image = await page.evaluate(() => (document.domain + document.querySelector('.banner--main-image .lqip img').dataset.srcset.split(', ')[2].split(' ')[0]))
 
@@ -26,7 +27,7 @@ const scrapeEachPlay = async (page, url) => {
     play.age = ''
     play.production = await page.evaluate(() => {
         const element = document.querySelector('ul.cast')
-        return element ? element.textContent : ''
+        return element ? element.textContent.trim() : ''
     })
 
     return play
@@ -65,11 +66,14 @@ const scrapeFrom = async (url) => {
         plays.push(play)
     }
 
-    console.log(plays)
-        
+    
     await page.close()
     await context.close()
     await browser.close()
+
+    return plays
 }
 
-scrapeFrom(seasonUrl)
+const theatrenational = () => scrapeFrom(seasonUrl)
+
+exports.theatrenational = theatrenational

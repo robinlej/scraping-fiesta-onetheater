@@ -7,6 +7,7 @@ const scrapePochePlays = async (page, url) => {
 
     let play = {}
             
+    play.theatre = 'Théâtre de Poche'
     play.image = await page.evaluate(() => document.querySelector('.showMainInfos .affiche img').src)
     play.title = await page.evaluate(() => document.querySelector('.showMainInfos .content h1').textContent)
     directorAndDate = await page.evaluate(() => document.querySelector('.showMainInfos .content h4').textContent.split(' | '))
@@ -51,11 +52,13 @@ const scrapeFrom = async (url) => {
         plays.push(play)
     }
 
-    console.log(plays)
-        
     await page.close()
     await context.close()
     await browser.close()
+
+    return plays
 }
 
-scrapeFrom(pocheUrl)
+const poche = () => scrapeFrom(pocheUrl)
+
+exports.poche = poche
