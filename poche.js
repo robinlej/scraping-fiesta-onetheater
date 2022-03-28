@@ -8,8 +8,8 @@ const scrapePochePlays = async (page, url) => {
     let play = {}
             
     play.theatre = 'Théâtre de Poche'
-    play.image = await page.evaluate(() => document.querySelector('.showMainInfos .affiche img').src)
     play.title = await page.evaluate(() => document.querySelector('.showMainInfos .content h1').textContent)
+    play.image = await page.evaluate(() => document.querySelector('.showMainInfos .affiche img').src)
     directorAndDate = await page.evaluate(() => document.querySelector('.showMainInfos .content h4').textContent.split(' | '))
     play.director = await directorAndDate[0].split('de ')[1]
     play.date = await directorAndDate[1]
