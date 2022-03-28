@@ -11,14 +11,14 @@ const { richesclaires } = require('./richesclaires')
 const main = async () => {
     let plays = [
         ...await martyrs(), 
-        // ...await theatrenational(),
-        // ...await poche(),
-        // ...await theatreduparc(),
-        // ...await tanneurs(),
-        // ...await theatredelavie(),
-        // ...await varia(),
-        // ...await trg(),
-        // ...await richesclaires()
+        ...await theatrenational(),
+        ...await poche(),
+        ...await theatreduparc(),
+        ...await tanneurs(),
+        ...await theatredelavie(),
+        ...await varia(),
+        ...await trg(),
+        ...await richesclaires()
     ]
 
     console.log(plays)
