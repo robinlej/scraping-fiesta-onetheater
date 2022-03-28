@@ -1,12 +1,17 @@
-const { martyrs } = require('./martyrs')
-const { theatrenational } = require('./theatrenational')
-const { tanneurs } = require('./tanneurs')
-const { theatreduparc } = require('./theatreduparc')
-const { poche } = require('./poche')
-const { theatredelavie } = require('./theatredelavie')
-const { varia } = require('./varia')
-const { trg } = require('./trg')
-const { richesclaires } = require('./richesclaires')
+const { martyrs } = require('./theaters/martyrs')
+const { theatrenational } = require('./theaters/theatrenational')
+const { tanneurs } = require('./theaters/tanneurs')
+const { theatreduparc } = require('./theaters/theatreduparc')
+const { poche } = require('./theaters/poche')
+const { theatredelavie } = require('./theaters/theatredelavie')
+const { varia } = require('./theaters/varia')
+const { trg } = require('./theaters/trg')
+const { richesclaires } = require('./theaters/richesclaires')
+const { ToisonDor } = require('./theaters/toisondor')
+const { balsamine } = require('./theaters/balsamine')
+const { lerideau } = require('./theaters/lerideau')
+const { CentreCultureAuderghem } = require('./theaters/ccauderghem')
+const { chapeau } = require ('./theaters/chapeau')
 
 const main = async () => {
     let plays = [
@@ -18,12 +23,15 @@ const main = async () => {
         ...await theatredelavie(),
         ...await varia(),
         ...await trg(),
-        ...await richesclaires()
+        ...await richesclaires(),
+        ...await ToisonDor(),
+        ...await balsamine(),
+        ...await lerideau(),
+        ...await CentreCultureAuderghem(),
+        ...await chapeau()
     ]
 
     console.log(plays)
-
-    // return plays
 
     // y = plays.sort((a, b) => a.title > b.title)
     // console.log(y)
