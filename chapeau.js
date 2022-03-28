@@ -17,7 +17,7 @@ const scrapUrls = async (url) => {
 )
 
 
-	console.log(playURL)
+	// console.log(playURL)
 
 	await browser.close()
 
