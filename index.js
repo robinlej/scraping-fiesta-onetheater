@@ -7,6 +7,10 @@ const { theatredelavie } = require('./theatredelavie')
 const { varia } = require('./varia')
 const { trg } = require('./trg')
 const { richesclaires } = require('./richesclaires')
+const { ToisonDor } = require('./toisondor')
+const { balsamine } = require('./balsamine')
+const { lerideau } = require('./lerideau')
+const { CentreCultureAuderghem } = require('./ccauderghem')
 
 const main = async () => {
     let plays = [
@@ -18,7 +22,11 @@ const main = async () => {
         ...await theatredelavie(),
         ...await varia(),
         ...await trg(),
-        ...await richesclaires()
+        ...await richesclaires(),
+        ...await ToisonDor(),
+        ...await balsamine(),
+        ...await lerideau(),
+        ...await CentreCultureAuderghem()
     ]
 
     console.log(plays)
